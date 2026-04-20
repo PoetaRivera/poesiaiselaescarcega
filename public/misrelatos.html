@@ -7,85 +7,107 @@
   <title>Relatos — Isela Escárcega</title>
   <link rel="stylesheet" href="paginas.css">
   <link rel="stylesheet" href="paginas1.css">
+
   <style>
-    #titulopoema { flex-grow: 1; height: auto; }
+    #contenido {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    #panel-menu { flex: 0 0 220px; min-width: 180px; }
+
+    #panel-relato {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    #titulorelato { text-align: center; min-height: 2rem; }
+    #titulorelato h2 { margin: 4px 0; }
+
+    #modulo1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(180deg, #0d0d1a 0%, #0a0a0a 100%);
+      border: 2px solid var(--teal-main);
+      border-radius: 8px;
+      padding: 10px;
+    }
 
     #textopoemas {
-      flex-grow: 1;
+      width: 100%;
       border: 2px solid var(--magenta-main);
       border-radius: 6px;
       overflow: hidden;
     }
 
-    #modulo1 {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 6;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(180deg, #0d0d1a 0%, #0a0a0a 100%);
-      border: 2px solid var(--teal-main);
-      border-radius: 8px;
-      gap: 4px;
-      padding: 10px;
+    #texto {
+      display: block;
+      width: 100%;
+      height: 560px;
+      border: none;
+    }
+
+    .menu-relatos {
+      background-color: #111;
+      border: 1px solid var(--teal-main);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .menu-relatos-titulo {
+      padding: 10px 12px;
+      color: var(--teal-light);
+      font-family: "ShareTechMono", monospace;
+      font-size: 0.85rem;
+      background-color: #111;
+      border-bottom: 1px solid #1a3a3a;
+    }
+
+    .lista-relatos {
+      list-style: none;
+      margin: 0;
+      padding: 4px 0;
+    }
+
+    .lista-relatos li {
+      cursor: pointer;
+      padding: 8px 16px;
+      font-family: Georgia, serif;
+      font-size: 0.85rem;
+      color: #c8c0b8;
+      border-left: 2px solid transparent;
+      transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .lista-relatos li:hover,
+    .lista-relatos li.activo {
+      background-color: #1a1a2e;
+      color: var(--teal-light);
+      border-left-color: var(--teal-main);
+    }
+
+    .lista-relatos li.proximamente {
+      color: #555;
+      font-style: italic;
+      cursor: default;
+    }
+
+    @media screen and (max-width: 700px) {
+      #contenido { flex-direction: column; }
+      #panel-menu { flex: none; width: 100%; }
+      #texto { height: 420px; }
     }
   </style>
-
-  <script src="jquery-3.6.0.js"></script>
-
-  <script>
-
-    $(document).ready(function () {
-
-      $('#textopoemas #texto').hide().fadeIn(1000);
-
-      //Relatos
-      $("#relato").mouseover(ponertitulo)
-      $("#relato li").mouseover(presentar);
-
-      //coloca el titulo del libro y la portada.
-      function ponertitulo(e) {
-        if (e.target == relato) {
-          $("#enlace1").replaceWith('<h2 id="enlace1">Libro: Relatos de pueblo</h2>');
-          $("#texto").replaceWith('<iframe id="texto" title="Texto de poema" height="600px" width="400px" src="imagenes/relatosdepueblo.jpg"> </iframe>');
-        }
-      }
-
-      function presentar(e) {
-
-        //libro:Voces del alma/sección amor
-        if (e.target == r1) {
-          $("#texto").replaceWith('<iframe id="texto" title="Texto de poema" height="600px" width="400px" src="relatos/cartapararafaelo.html"> </iframe>');
-
-        } else if (e.target == r2) {
-          $("#texto").replaceWith('<iframe id="texto" title="Texto de poema" height="600px" width="400px" src="relatos/elultimomartes.html"> </iframe>');
-
-        } else if (e.target == r3) {
-          $("#texto").replaceWith('<iframe id="texto" title="Texto de poema" height="600px" width="400px" src="relatos/lahabitacionblanca.html"> </iframe>');
-
-        } else if (e.target == r4) {
-          $("#texto").replaceWith('<iframe id="texto" title="Texto de poema" height="600px" width="400px" src="relatos/mimartina.html"> </iframe>');
-
-        } else if (e.target == r5) {
-          $("#texto").replaceWith('<iframe id="texto" title="Texto de poema" height="600px" width="400px" src="relatos/vientressinmemoria.html"> </iframe>');
-
-        } else if (e.target == r6) {
-          $("#texto").replaceWith('<iframe id="texto" title="Texto de poema" height="600px" width="400px" src="relatos/miultimoamante.html"> </iframe>');
-
-        } else if (e.target == r7) {
-          $("#texto").replaceWith('<iframe id="texto" title="Texto de poema" height="600px" width="400px" src="relatos/proximamente.html"> </iframe>');
-
-        }
-      }
-    });
-  </script>
-
 </head>
-
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN08VK3NSW"></script>
-
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
@@ -95,64 +117,76 @@
 
 <body>
   <div id="pagina">
+
     <div id="barraSuperior">
       <div id="fotoIzq">
-        <img id=foto1 src="imagenes/foto1.jpg" alt="" width="100" height="150" />
+        <img id="foto1" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
       </div>
       <div id="titulo">
-        <h1>Mis relatos</h1>
+        <h1>Mis Relatos</h1>
       </div>
       <div id="fotoDer">
-        <img id="foto2" src="imagenes/foto1.jpg" alt="" width="100" height="150" />
+        <img id="foto2" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
       </div>
     </div>
 
-    <div id="links">
-      <a id="a1" href="acercademi.html">Acerca<br />de mí</a>
-      <a id="a2" href="index.html">El<br />inicio</a>
-      <a id="a3" href="mipoesia.html">Mi<br />poesía</a>
-      <a id="a4" href="mislibros.html">Mis <br />libros</a>
-      <a id="a5" href="misnovelas.html">Mis<br />novelas</a>
-    </div>
+    <nav id="links">
+      <a href="acercademi.html">Acerca<br />de mí</a>
+      <a href="index.html">El<br />inicio</a>
+      <a href="mipoesia.html">Mi<br />poesía</a>
+      <a href="mislibros.html">Mis<br />libros</a>
+      <a href="misnovelas.html">Mis<br />novelas</a>
+    </nav>
 
-    <div id="audios">
-      <!-- <audio controls id="audio">
-        <source src="audios/y fueron primavera.mp3" type="audio/mpeg" />
-        Tu navegador no admite mp3
-      </audio> -->
-    </div>
+    <div id="contenido">
 
-    <div id="menus">
-      <ul class="libros">
-        <li id="relato">Seleciona un Relato
-          <ul>
-            <li id="r1">Carta para Rafaelo</li>
-            <li id="r2">El último martes</li>
-            <li id="r3">La habitación blanca</li>
-            <li id="r4">Mi Martina</li>
-            <li id="r5">Vientres sin memoria</li>
-            <li id="r6">Mi último amante</li>
-            <li id="r7">Próximamente...</li>
-        </li>
-      </ul>
-
-    </div>
-
-    <div id="titulorelato">
-      <h2 id="enlace1">Mis Relatos</h2>
-    </div>
-
-    <div id="modulo1">
-      <div id="textopoemas">
-        <iframe id="texto" title="Texto de poema" height="600px" width="400px" aling="center"
-          src="imagenes/relatosdepueblo.jpg">
-        </iframe>
+      <div id="panel-menu">
+        <div class="menu-relatos">
+          <div class="menu-relatos-titulo">Selecciona un relato</div>
+          <ul class="lista-relatos">
+            <li data-src="relatos/cartapararafaelo.html">Carta para Rafaelo</li>
+            <li data-src="relatos/elultimomartes.html">El último martes</li>
+            <li data-src="relatos/lahabitacionblanca.html">La habitación blanca</li>
+            <li data-src="relatos/mimartina.html">Mi Martina</li>
+            <li data-src="relatos/vientressinmemoria.html">Vientres sin memoria</li>
+            <li data-src="relatos/miultimoamante.html">Mi último amante</li>
+            <li class="proximamente">Próximamente...</li>
+          </ul>
+        </div>
       </div>
 
+      <div id="panel-relato">
+        <div id="titulorelato">
+          <h2 id="enlace1">— Selecciona un relato —</h2>
+        </div>
 
+        <div id="modulo1">
+          <div id="textopoemas">
+            <iframe id="texto" title="Texto de relato"
+              src="imagenes/relatosdepueblo.jpg">
+            </iframe>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
+
+  <script>
+    const iframe = document.getElementById('texto');
+    const titulo = document.getElementById('enlace1');
+    let itemActivo = null;
+
+    document.querySelectorAll('.lista-relatos li[data-src]').forEach(function(li) {
+      li.addEventListener('click', function() {
+        if (itemActivo) itemActivo.classList.remove('activo');
+        itemActivo = this;
+        this.classList.add('activo');
+        iframe.src = this.dataset.src;
+        titulo.textContent = this.textContent.trim();
+      });
+    });
+  </script>
 </body>
 
 </html>

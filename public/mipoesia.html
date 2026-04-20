@@ -135,19 +135,18 @@
     .menu-seccion summary {
       cursor: pointer;
       padding: 6px 10px;
-      background-color: #0d0d0d;
-      border: 1px solid #1a3a3a;
+      background-color: #162020;
+      border: 1px solid var(--teal-main);
       border-radius: 4px;
       color: var(--teal-light);
       font-family: "ShareTechMono", monospace;
       font-size: 0.78rem;
       list-style: none;
       user-select: none;
-      opacity: 0.85;
-      transition: opacity 0.2s;
+      transition: background-color 0.2s;
     }
 
-    .menu-seccion summary:hover { opacity: 1; }
+    .menu-seccion summary:hover { background-color: #1e3030; }
 
     .menu-seccion summary::marker,
     .menu-seccion summary::-webkit-details-marker { display: none; }

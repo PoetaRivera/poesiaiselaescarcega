@@ -1,7 +1,7 @@
 # Seguimiento Fase 1 - POESIAISELAESCARCEGA
 
 **Última actualización:** 2026-04-19
-**Estado:** FASE 1 COMPLETADA ✓
+**Estado:** EN REVISIÓN — ajustes finos aplicados
 
 ---
 
@@ -51,8 +51,12 @@
 
 ---
 
+## Ajustes aplicados en sesión de revisión (2026-04-19)
+- `.menu-seccion summary` en mipoesia.html: fondo `#162020` + borde `var(--teal-main)` para que los submenús sean visibles
+- `#disqus_thread` en index.html: fondo cambiado de `var(--teal-light)` a `#111` (era verde claro sobre fondo oscuro)
+- Desplegado a Firebase ✓
+
 ## Pendiente (Fase 2)
-- Verificación visual completa por el usuario
-- Posibles ajustes finos tras la revisión
+- Confirmar que Disqus carga correctamente en producción (verificar shortname en cuenta Disqus)
 - Agregar nuevos poemas o relatos si hay contenido nuevo
 - Considerar añadir redes sociales / footer

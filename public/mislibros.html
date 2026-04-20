@@ -5,75 +5,132 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Libros — Isela Escárcega</title>
+  <meta name="description" content="Libros publicados por Isela Escárcega: Relatos de pueblo, El perfume de la espera y Un amor que nunca llegó. Disponibles en Amazon.">
   <link rel="stylesheet" href="paginas.css">
 
   <style>
-    #libros {
-      display: grid;
-      grid-template-columns: 1fr 175px auto 1fr;
-      column-gap: 16px;
-      row-gap: 24px;
-      align-items: start;
-    }
-
-    .lib {
-      padding: 10px 0;
-      border-top: 1px solid var(--teal-main);
-      border-bottom: 1px solid var(--teal-main);
-    }
-
-    .resena {
+    #galeria-libros {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 32px;
+      padding: 8px 0 24px;
     }
 
-    .resena p {
-      color: #d0ccc8;
+    .card-libro {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      align-items: flex-start;
+      background: linear-gradient(135deg, #0d0d1a 0%, #0a0a0a 100%);
+      border: 1px solid var(--teal-main);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card-libro:hover {
+      box-shadow: 0 6px 28px rgba(0, 191, 165, 0.2);
+      border-color: var(--teal-mid);
+    }
+
+    .card-portada {
+      flex: 0 0 auto;
+    }
+
+    .card-portada img {
+      width: 140px;
+      border: 1px solid var(--teal-main);
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.7);
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-portada img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0, 191, 165, 0.3);
+    }
+
+    .card-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card-titulo {
+      font-family: "AlmendraDisplay", serif;
+      font-size: 1.3rem;
+      font-weight: normal;
+      color: var(--teal-light);
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .card-etiqueta {
+      font-family: "ShareTechMono", monospace;
+      font-size: 0.72rem;
+      color: var(--teal-main);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .card-resena {
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+      color: #c8c0b8;
+      line-height: 1.75;
       text-align: justify;
-      font-size: 0.88rem;
-      line-height: 1.7;
       margin: 0;
     }
 
-    .lib img {
+    .card-amazon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+      padding: 8px 16px;
+      background-color: transparent;
       border: 1px solid var(--teal-main);
-      border-radius: 4px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    }
-
-    span.titulo {
+      border-radius: 5px;
+      text-decoration: none;
       font-family: "ShareTechMono", monospace;
-      color: var(--teal-main);
-      font-size: 0.8rem;
-      font-weight: normal;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    a span {
-      font-family: "ShareTechMono", monospace;
-      color: var(--teal-mid);
       font-size: 0.78rem;
-      text-decoration: underline;
+      color: var(--teal-mid);
+      transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+      align-self: flex-start;
     }
 
-    a span:hover {
-      color: var(--magenta-light);
+    .card-amazon::before {
+      content: "→";
+      color: var(--magenta-main);
+    }
+
+    .card-amazon:hover {
+      background-color: var(--teal-main);
+      color: #000;
+      box-shadow: 0 0 10px rgba(0, 191, 165, 0.4);
+    }
+
+    .card-amazon:hover::before {
+      color: #000;
     }
 
     @media screen and (max-width: 600px) {
-      #libros {
-        grid-template-columns: 1fr;
+      .card-libro {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
+      .card-resena { text-align: left; }
+      .card-amazon { align-self: center; }
     }
   </style>
-
 </head>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VN08VK3NSW"></script>
-
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
@@ -81,90 +138,91 @@
   gtag('config', 'G-VN08VK3NSW');
 </script>
 
-
 <body>
   <div id="pagina">
     <div id="barraSuperior">
       <div id="fotoIzq">
-        <img id="foto1" src="imagenes/foto1.jpg" alt="" width="100" height="150" />
+        <img id="foto1" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
       </div>
       <div id="titulo">
-        <h1> Mis libros</h1>
+        <h1>Mis Libros</h1>
       </div>
       <div id="fotoDer">
-        <img id="foto2" src="imagenes/foto1.jpg" alt="" width="100" height="150" />
+        <img id="foto2" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
       </div>
     </div>
 
-    <div id="links">
-      <a id="a1" href="acercademi.html">Acerca<br />de mí</a>
-      <a id="a2" href="index.html">El<br />inicio</a>
-      <a id="a3" href="mipoesia.html">Mi<br />poesía</a>
-      <a id="a4" href="misrelatos.html">Mis <br />Relatos</a>
-      <a id="a5" href="misnovelas.html">Mis<br />novelas</a>
-    </div>
-    <div id="linea"></div>
-    <div id="libros">
-      <div></div>
-      <div class="lib">
-        <img src="imagenes/relatosdepueblo175.jpg" alt="" width="175px" height="261px" />
-      </div>
-      <div class="lib">
-        <div class="resena">
-          <span>Reseña</span>
-          <p>
+    <nav id="links">
+      <a href="acercademi.html">Acerca<br />de mí</a>
+      <a href="index.html">El<br />inicio</a>
+      <a href="mipoesia.html">Mi<br />poesía</a>
+      <a href="misrelatos.html">Mis<br />relatos</a>
+      <a href="misnovelas.html">Mis<br />novelas</a>
+    </nav>
+
+    <div id="galeria-libros">
+
+      <div class="card-libro">
+        <div class="card-portada">
+          <img src="imagenes/relatosdepueblo175.jpg" alt="Relatos de pueblo — Isela Escárcega" />
+        </div>
+        <div class="card-info">
+          <span class="card-etiqueta">Poemario · 2021</span>
+          <h2 class="card-titulo">Relatos de pueblo</h2>
+          <p class="card-resena">
             Sabía que olería a pueblo, a río, a campo, a familia, a vida, a amores…
             pero también dejaría escapar el olor a dolor, a desengaño, a frustración, a muerte…
           </p>
+          <a class="card-amazon"
+             href="https://www.amazon.es/Relatos-pueblo-poemas-Mar%C3%ADa-Esc%C3%A1rcega/dp/B097X5RGC4/ref=sr_1_3?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=19O2DA9TE686O&keywords=Isela+escarcega&qid=1673751207&s=books&sprefix=isela+escarcega%2Cstripbooks%2C283&sr=1-3"
+             target="_blank" rel="noopener">
+            Comprar en Amazon
+          </a>
         </div>
-        <span class="titulo">Encuentralo en Amazon:</span>
+      </div>
 
-        <a
-          href="https://www.amazon.es/Relatos-pueblo-poemas-Mar%C3%ADa-Esc%C3%A1rcega/dp/B097X5RGC4/ref=sr_1_3?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=19O2DA9TE686O&keywords=Isela+escarcega&qid=1673751207&s=books&sprefix=isela+escarcega%2Cstripbooks%2C283&sr=1-3"><span>Link
-            a AMAZON:Relatos de pueblo y poemas</span></a>
-      </div>
-      <div></div>
-      <div></div>
-      <div class="lib">
-        <img src="imagenes/elperfumedelaespera175.jpg" alt="" width="175px" height="261px" />
-      </div>
-      <div class="lib">
-        <div class="resena">
-          <span>Reseña</span>
-          <p>
+      <div class="card-libro">
+        <div class="card-portada">
+          <img src="imagenes/elperfumedelaespera175.jpg" alt="El perfume de la espera — Isela Escárcega" />
+        </div>
+        <div class="card-info">
+          <span class="card-etiqueta">Poemario</span>
+          <h2 class="card-titulo">El perfume de la espera</h2>
+          <p class="card-resena">
             Un apasionado poemario que avasalla los sentidos del lector;
             obligándolo a oler esa hechizada fragancia, letra a letra de cada
             poema; poesía donde se une la delicadeza y el salvajismo de dos
             plumas con esencias totalmente diferentes.
           </p>
+          <a class="card-amazon"
+             href="https://www.amazon.com/s?k=el+perfume+de+la+espera&i=stripbooks&__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=TM2N0BAG5KSS&sprefix=el+perfume+de+la+espera%2Cstripbooks%2C135&ref=nb_sb_noss"
+             target="_blank" rel="noopener">
+            Comprar en Amazon
+          </a>
         </div>
-        <span class="titulo">Encuentralo en Amazon:</span>
+      </div>
 
-        <a
-          href="https://www.amazon.com/s?k=el+perfume+de+la+espera&i=stripbooks&__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=TM2N0BAG5KSS&sprefix=el+perfume+de+la+espera%2Cstripbooks%2C135&ref=nb_sb_noss"><span>Link
-            a AMAZON:El perfume de la espera</span></a>
-      </div>
-      <div></div>
-      <div></div>
-      <div class="lib">
-        <img src="imagenes/unamorquenuncallego175.jpg" alt="" width="175px" height="261px" />
-      </div>
-      <div class="lib">
-        <div class="resena">
-          <span>Reseña</span>
-          <p>
+      <div class="card-libro">
+        <div class="card-portada">
+          <img src="imagenes/unamorquenuncallego175.jpg" alt="Un amor que nunca llegó — Isela Escárcega" />
+        </div>
+        <div class="card-info">
+          <span class="card-etiqueta">Novela</span>
+          <h2 class="card-titulo">Un amor que nunca llegó</h2>
+          <p class="card-resena">
             Es la historia de amor de dos escritores, es la historia de Sarah
-            y Carlo. Nos relata el riesgozo camino de Carlo atraves de su
-            travesía hacia Sarah, y de la lucha de ella, por lograr el ansiado
+            y Carlo. Nos relata el riesgoso camino de Carlo a través de su
+            travesía hacia Sarah, y de la lucha de ella por lograr el ansiado
             sueño americano.
           </p>
+          <a class="card-amazon"
+             href="https://www.amazon.com/-/es/Isela-Esc%C3%A1rcega-ebook/dp/B08CBRZGC1/ref=sr_1_1?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1BCHYUYBKP9OY&keywords=un+amor+que+nunca+llego&qid=1666324280&s=books&sprefix=un+amor+que+nunca+llego%2Cstripbooks%2C134&sr=1-1"
+             target="_blank" rel="noopener">
+            Comprar en Amazon
+          </a>
         </div>
-        <span class="titulo">Encuentralo en Amazon:</span>
-        <a
-          href="https://www.amazon.com/-/es/Isela-Esc%C3%A1rcega-ebook/dp/B08CBRZGC1/ref=sr_1_1?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1BCHYUYBKP9OY&keywords=un+amor+que+nunca+llego&qid=1666324280&s=books&sprefix=un+amor+que+nunca+llego%2Cstripbooks%2C134&sr=1-1"><span>Link
-            a AMAZON:Un amor que nunca llego</span></a>
       </div>
-      <div></div>
+
     </div>
   </div>
 </body>

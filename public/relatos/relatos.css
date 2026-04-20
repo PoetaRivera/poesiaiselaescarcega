@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "AlmendraDisplay";
+  src: url("../fuentes/AlmendraDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Sevillana";
+  src: url("../fuentes/Sevillana-Regular.ttf") format("truetype");
+}
+
+html, body {
+  background-color: #0f0f0f !important;
+  color: #e0d8cc !important;
+  font-family: Georgia, 'Book Antiqua', serif !important;
+  font-size: 11pt !important;
+  padding: 16px 14px !important;
+  margin: 0 !important;
+}
+
+h1, h2, h3 {
+  font-family: "AlmendraDisplay", serif !important;
+  color: #B2DFDB !important;
+  text-align: center !important;
+  font-weight: normal !important;
+}
+
+p {
+  line-height: 1.85 !important;
+  color: #e0d8cc !important;
+}
+
+a { color: #00BFA5; }
+
+img[src="separador1.png"] {
+  opacity: 0.4;
+  filter: invert(1);
+}
+
+/* Drop cap */
+div[style*="float:left"] span {
+  font-family: "Sevillana", cursive !important;
+  color: #00BFA5 !important;
+}

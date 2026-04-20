@@ -1,81 +1,58 @@
 # Seguimiento Fase 1 - POESIAISELAESCARCEGA
 
-**Fecha de evaluación:** 2026-04-19
-
-## Estado: LOCAL SINCRONIZADO CON PRODUCCIÓN ✓
-
----
-
-## Descripción del proyecto
-Sitio web estático de poesía y literatura de María Isela Escárcega Villezcas.
-Desplegado en Firebase Hosting (proyecto: `poesiaiselaescarcega`).
+**Última actualización:** 2026-04-19
+**Estado:** FASE 1 COMPLETADA ✓
 
 ---
 
-## Estructura del sitio
-- `index.html` — Página principal con carrusel de pensamientos/frases
-- `acercademi.html` — Biografía de la autora
-- `mipoesia.html` — Poemas organizados en árbol por libro/sección
-- `misrelatos.html` — Relatos cortos
-- `mislibros.html` — Catálogo de libros con links a Amazon
-- `misnovelas.html` — Novelas (solo 1 capítulo disponible)
-
-## Contenido existente
-- **Poemas:** 42 en total (2 libros: "Relatos de pueblo" y "El perfume de la espera")
-- **Relatos:** 6 relatos cortos + 1 "próximamente"
-- **Audios:** 4 poemas con audio (milola, nuestraultimanoche, ninosanto, palomastristes)
-- **Pensamientos/frases:** 12
-- **Libros en Amazon:** 3 (Relatos de pueblo, El perfume de la espera, Un amor que nunca llegó)
-- **Novelas:** 1 capítulo de "Un amor que nunca llegó"
+## URLs
+- **Producción:** https://poesiaiselaescarcega.web.app
+- **Repositorio:** https://github.com/PoetaRivera/poesiaiselaescarcega
 
 ---
 
-## COMPLETADO
+## Todo lo completado en esta fase
 
-### Sincronización local ← producción (2026-04-19)
-Los siguientes archivos locales estaban desactualizados y fueron reemplazados con la versión de producción:
-- `index.html` (local tenía versión incompleta de 3446b, prod=8325b)
-- `mipoesia.html`, `misrelatos.html`, `mislibros.html`, `misnovelas.html`
-- `menuPrincipal.html`, `paginas.css`
-- Backups del estado anterior guardados en `backup_local/`
+### 1. Diagnóstico y sincronización
+- Evaluación inicial del proyecto
+- Detección de archivos locales desactualizados vs producción
+- 7 archivos sincronizados desde producción (index.html era el más crítico)
+- Backups guardados en `backup_local/`
 
----
+### 2. Limpieza
+- Eliminados 9 archivos basura (copias de trabajo y pruebas de Bootstrap)
+- Repositorio git inicializado y publicado en GitHub
 
-## PROBLEMAS PENDIENTES (por corregir)
-
-### ~~MEDIO - Archivos basura~~ ELIMINADOS (2026-04-19)
-- ~~`alosojosforasteros copy 2..7.html`~~ — eliminados
-- ~~`1.html`, `1.js`, `indexbootstrap.html`~~ — eliminados
-
-### BAJO - Otros
-- `menuPrincipal.html` existe pero no está enlazado desde ninguna página
-- Variables CSS repetidas en cada archivo HTML (podría centralizarse en `paginas.css`)
-- Sin control de versiones git
-
----
-
-### Mejora de código y visualización (2026-04-19)
-**Archivos modificados:**
-- `paginas.css` — centralizado: todas las fuentes declaradas, variables únicas, nuevo diseño de header/nav/tipografía
-- `paginas1.css` — limpiado y actualizado
-- `poemas/relatosdepueblo/poemas.css` — fondo oscuro, fuentes literarias (AlmendraDisplay, Sevillana)
-- `poemas/elperfumedelaespera/poemas.css` — ídem con acento magenta
-- `pensamientos/pensamientos.css` — fuente ZenLoopItalic aplicada
-- `index.html` — JS simplificado (switch→array), Bootstrap removido, código limpio
-- `acercademi.html` — limpiado, lang=es, variables CSS removidas
-- `mipoesia.html`, `misrelatos.html`, `mislibros.html`, `misnovelas.html` — limpiados
-
-**Mejoras aplicadas:**
-- Fuentes locales ahora activas: Sevillana (h1), AlmendraDisplay (h2), ZenLoopItalic (pensamientos), ShareTechMono (nav)
-- Variables CSS centralizadas solo en `paginas.css` (eliminadas de cada HTML)
+### 3. Mejoras de código
+- CSS variables centralizadas en `paginas.css` (eliminadas de cada HTML)
 - `lang="es"` en todos los archivos
-- Google Analytics en lugar correcto
 - Bootstrap duplicado eliminado
-- Código JS simplificado
+- jQuery eliminado de todas las páginas
+- 42 if/else en mipoesia.html → `data-src` en cada `<li>` + 1 listener
+- Google Analytics colocado correctamente
+
+### 4. Mejoras visuales
+- Fuentes locales activadas: **Sevillana** (h1), **AlmendraDisplay** (h2/títulos), **ZenLoopItalic** (pensamientos), **ShareTechMono** (navegación)
+- Header con gradiente y glow sutil
+- Botones de navegación con transiciones
+- Fondo oscuro en poemas, pensamientos y relatos
+- `mislibros.html` rediseñado con cards (portada + reseña + botón Amazon)
+- Relatos individuales: CSS oscuro aplicado sobre estilos Aspose
+
+### 5. Funcionalidad
+- Menú de poemas con `<details>` nativo — funciona en móvil y desktop
+- Layout responsivo: panel menú + panel contenido en todas las secciones
+- Audio por `data-audio` en los 4 poemas con MP3
+- Iframe responsivo (ancho 100%, altura fija)
+
+### 6. SEO
+- `meta description` en las 6 páginas principales
+- `meta keywords` y Open Graph en index.html
 
 ---
 
-## PENDIENTE - Por donde continuar
-
-**Próxima tarea:** Hacer `firebase deploy` para publicar los cambios en producción.
-Luego: inicializar repositorio git para control de versiones.
+## Pendiente (Fase 2)
+- Verificación visual completa por el usuario
+- Posibles ajustes finos tras la revisión
+- Agregar nuevos poemas o relatos si hay contenido nuevo
+- Considerar añadir redes sociales / footer

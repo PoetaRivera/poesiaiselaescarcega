@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Relatos — Isela Escárcega</title>
   <meta name="description" content="Relatos cortos de Isela Escárcega: Carta para Rafaelo, El último martes, La habitación blanca, Mi Martina y más.">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="stylesheet" href="paginas.css">
   <link rel="stylesheet" href="paginas1.css">
 
@@ -157,13 +159,18 @@
       </div>
 
       <div id="panel-relato">
+        <div id="breadcrumb">
+          <a href="index.html">Inicio</a> ›
+          <a href="misrelatos.html">Mis relatos</a>
+          <span id="bc-relato"></span>
+        </div>
         <div id="titulorelato">
           <h2 id="enlace1">— Selecciona un relato —</h2>
         </div>
 
         <div id="modulo1">
           <div id="textopoemas">
-            <iframe id="texto" title="Texto de relato"
+            <iframe id="texto" title="Texto de relato" loading="lazy"
               src="imagenes/relatosdepueblo.jpg">
             </iframe>
           </div>
@@ -171,6 +178,17 @@
       </div>
 
     </div>
+
+    <footer id="footer">
+      <div class="footer-nav">
+        <a href="index.html">Inicio</a>
+        <a href="mipoesia.html">Mi poesía</a>
+        <a href="mislibros.html">Mis libros</a>
+        <a href="misnovelas.html">Mis novelas</a>
+        <a href="acercademi.html">Acerca de mí</a>
+      </div>
+      <p class="footer-copy">© 2026 Isela Escárcega — Todos los derechos reservados</p>
+    </footer>
   </div>
 
   <script>
@@ -178,13 +196,17 @@
     const titulo = document.getElementById('enlace1');
     let itemActivo = null;
 
+    const bcRelato = document.getElementById('bc-relato');
+
     document.querySelectorAll('.lista-relatos li[data-src]').forEach(function(li) {
       li.addEventListener('click', function() {
         if (itemActivo) itemActivo.classList.remove('activo');
         itemActivo = this;
         this.classList.add('activo');
         iframe.src = this.dataset.src;
-        titulo.textContent = this.textContent.trim();
+        const nombre = this.textContent.trim();
+        titulo.textContent = nombre;
+        bcRelato.textContent = ' › ' + nombre;
       });
     });
   </script>

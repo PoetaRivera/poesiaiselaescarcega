@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Poesía — Isela Escárcega</title>
   <meta name="description" content="Lee los poemas de Isela Escárcega: Relatos de pueblo y El perfume de la espera. 42 poemas organizados por libro y sección, algunos con audio.">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="stylesheet" href="paginas.css" />
   <link rel="stylesheet" href="paginas1.css" />
 
@@ -255,6 +257,10 @@
 
       <!-- PANEL IZQUIERDO: menú de libros -->
       <div id="panel-menu">
+        <div id="buscador-wrap">
+          <input type="text" id="buscador" placeholder="Buscar poema…" autocomplete="off" />
+        </div>
+
 
         <!-- Libro 1: Relatos de pueblo -->
         <details class="menu-libro">
@@ -375,6 +381,14 @@
       <!-- PANEL DERECHO: poema -->
       <div id="panel-poema">
 
+        <div id="breadcrumb">
+          <a href="index.html">Inicio</a> ›
+          <a href="mipoesia.html">Mi poesía</a>
+          <span id="bc-libro"></span>
+          <span id="bc-seccion"></span>
+          <span id="bc-poema"></span>
+        </div>
+
         <div id="audios">
           <div id="hayaudio"></div>
           <audio id="audio" controls style="display:none; width:100%; max-width:380px;">
@@ -384,11 +398,12 @@
 
         <div id="titulopoema">
           <h2 id="enlace1">— Selecciona un poema —</h2>
+          <button id="btnCompartir" onclick="compartirPoema()">↗ Compartir</button>
         </div>
 
         <div id="modulo1">
           <div id="textopoemas">
-            <iframe id="texto" title="Texto de poema"
+            <iframe id="texto" title="Texto de poema" loading="lazy"
               src="imagenes/fotopoesia.png">
             </iframe>
           </div>
@@ -396,6 +411,16 @@
 
       </div><!-- fin panel-poema -->
     </div><!-- fin contenido -->
+    <footer id="footer">
+      <div class="footer-nav">
+        <a href="index.html">Inicio</a>
+        <a href="misrelatos.html">Mis relatos</a>
+        <a href="mislibros.html">Mis libros</a>
+        <a href="misnovelas.html">Mis novelas</a>
+        <a href="acercademi.html">Acerca de mí</a>
+      </div>
+      <p class="footer-copy">© 2026 Isela Escárcega — Todos los derechos reservados</p>
+    </footer>
   </div><!-- fin pagina -->
 
   <script>
@@ -403,21 +428,52 @@
     const titulo = document.getElementById('enlace1');
     const audio  = document.getElementById('audio');
     const hayaudio = document.getElementById('hayaudio');
+    const btnCompartir = document.getElementById('btnCompartir');
+    const bcLibro   = document.getElementById('bc-libro');
+    const bcSeccion = document.getElementById('bc-seccion');
+    const bcPoema   = document.getElementById('bc-poema');
     let itemActivo = null;
+
+    function actualizarBreadcrumb(libro, seccion, poema) {
+      bcLibro.textContent   = libro   ? ' › ' + libro   : '';
+      bcSeccion.textContent = seccion ? ' › ' + seccion : '';
+      bcPoema.textContent   = poema   ? ' › ' + poema   : '';
+    }
+
+    function compartirPoema() {
+      const nombre = titulo.textContent;
+      const texto  = 'Lee "' + nombre + '" de Isela Escárcega';
+      if (navigator.share) {
+        navigator.share({ title: nombre + ' — Isela Escárcega', text: texto, url: window.location.href });
+      } else {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          alert('Enlace copiado al portapapeles');
+        });
+      }
+    }
 
     // Clic en un poema
     document.querySelectorAll('.lista-poemas li').forEach(function(li) {
       li.addEventListener('click', function(e) {
         e.stopPropagation();
 
-        // Marcar activo
         if (itemActivo) itemActivo.classList.remove('activo');
         itemActivo = this;
         this.classList.add('activo');
 
-        // Cargar poema
+        const nombrePoema = this.textContent.trim().replace(' 🎵', '');
         iframe.src = this.dataset.src;
-        titulo.textContent = this.textContent.trim().replace(' 🎵', '');
+        titulo.textContent = nombrePoema;
+        btnCompartir.style.display = 'inline-block';
+
+        // Breadcrumb
+        const seccion = this.closest('.menu-seccion');
+        const libro   = this.closest('.menu-libro');
+        actualizarBreadcrumb(
+          libro   ? libro.querySelector('summary').textContent.trim()   : '',
+          seccion ? seccion.querySelector('summary').textContent.trim() : '',
+          nombrePoema
+        );
 
         // Audio
         const audioSrc = this.dataset.audio;
@@ -442,12 +498,30 @@
         if (portada) {
           iframe.src = portada;
           titulo.textContent = this.dataset.titulo || '';
+          btnCompartir.style.display = 'none';
           audio.pause();
           audio.src = '';
           audio.style.display = 'none';
           hayaudio.textContent = '';
           if (itemActivo) { itemActivo.classList.remove('activo'); itemActivo = null; }
+          actualizarBreadcrumb(this.dataset.titulo || '', '', '');
         }
+      });
+    });
+
+    // Buscador
+    document.getElementById('buscador').addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      document.querySelectorAll('.lista-poemas li').forEach(function(li) {
+        li.classList.toggle('hidden', q.length > 0 && !li.textContent.toLowerCase().includes(q));
+      });
+      document.querySelectorAll('.menu-seccion').forEach(function(sec) {
+        const visibles = sec.querySelectorAll('.lista-poemas li:not(.hidden)').length;
+        sec.classList.toggle('hidden', visibles === 0);
+        if (q.length > 0) sec.open = true;
+      });
+      document.querySelectorAll('.menu-libro').forEach(function(lib) {
+        if (q.length > 0) lib.open = true;
       });
     });
   </script>

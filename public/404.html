@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página no encontrada — Isela Escárcega</title>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="stylesheet" href="paginas.css" />
+  <style>
+    #bloque-404 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 48px 16px;
+      text-align: center;
+    }
+
+    .num-404 {
+      font-family: "AlmendraDisplay", serif;
+      font-size: 5rem;
+      color: var(--teal-main);
+      text-shadow: 0 0 24px rgba(0, 191, 165, 0.4);
+      margin: 0;
+      line-height: 1;
+    }
+
+    .msg-404 {
+      font-family: "ShareTechMono", monospace;
+      font-size: 0.9rem;
+      color: #888;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    .sub-404 {
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      color: #c8c0b8;
+      max-width: 420px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .btn-inicio {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 10px 24px;
+      border: 2px solid var(--teal-main);
+      border-radius: 6px;
+      color: var(--teal-light);
+      text-decoration: none;
+      font-family: "ShareTechMono", monospace;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-inicio:hover {
+      background-color: var(--teal-main);
+      color: #000;
+      box-shadow: 0 0 12px rgba(0, 191, 165, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="pagina">
+
+    <div id="barraSuperior">
+      <div id="fotoIzq">
+        <img id="foto1" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
+      </div>
+      <div id="titulo">
+        <h1>Isela Escárcega</h1>
+      </div>
+      <div id="fotoDer">
+        <img id="foto2" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
+      </div>
+    </div>
+
+    <nav id="links">
+      <a href="acercademi.html">Acerca<br />de mí</a>
+      <a href="mipoesia.html">Mi<br />poesía</a>
+      <a href="misrelatos.html">Mis<br />relatos</a>
+      <a href="mislibros.html">Mis<br />libros</a>
+      <a href="misnovelas.html">Mis<br />novelas</a>
+    </nav>
+
+    <div id="bloque-404">
+      <p class="num-404">404</p>
+      <p class="msg-404">PÁGINA NO ENCONTRADA</p>
+      <p class="sub-404">
+        Como un verso que se pierde en el viento,<br>
+        esta página no existe — o ya no está aquí.
+      </p>
+      <a href="index.html" class="btn-inicio">Volver al inicio</a>
+    </div>
+
+    <footer id="footer">
+      <div class="footer-nav">
+        <a href="index.html">Inicio</a>
+        <a href="mipoesia.html">Mi poesía</a>
+        <a href="misrelatos.html">Mis relatos</a>
+        <a href="mislibros.html">Mis libros</a>
+        <a href="misnovelas.html">Mis novelas</a>
+        <a href="acercademi.html">Acerca de mí</a>
+      </div>
+      <p class="footer-copy">© 2026 Isela Escárcega — Todos los derechos reservados</p>
+    </footer>
+
+  </div>
+</body>
+</html>

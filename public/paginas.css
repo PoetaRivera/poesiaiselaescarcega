@@ -298,3 +298,116 @@ ul {
   opacity: 0.4;
   margin: 8px 0 20px;
 }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+#footer {
+  margin-top: 28px;
+  padding: 16px 8px 12px;
+  border-top: 1px solid var(--teal-dark);
+  text-align: center;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.footer-nav a {
+  color: var(--teal-mid);
+  text-decoration: none;
+  font-family: "ShareTechMono", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: var(--teal-light);
+}
+
+.footer-copy {
+  color: #444;
+  font-family: "ShareTechMono", monospace;
+  font-size: 0.7rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+#breadcrumb {
+  font-family: "ShareTechMono", monospace;
+  font-size: 0.72rem;
+  color: #666;
+  letter-spacing: 1px;
+  margin: 0 0 4px;
+}
+
+#breadcrumb a {
+  color: var(--teal-dark);
+  text-decoration: none;
+}
+
+#breadcrumb a:hover {
+  color: var(--teal-mid);
+}
+
+#breadcrumb span {
+  color: var(--teal-mid);
+}
+
+/* ============================================================
+   BUSCADOR DE POEMAS
+   ============================================================ */
+#buscador-wrap {
+  padding: 8px 4px;
+}
+
+#buscador {
+  width: 100%;
+  padding: 7px 10px;
+  background-color: #111;
+  border: 1px solid var(--teal-dark);
+  border-radius: 5px;
+  color: var(--teal-light);
+  font-family: "ShareTechMono", monospace;
+  font-size: 0.78rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#buscador::placeholder { color: #444; }
+
+#buscador:focus { border-color: var(--teal-main); }
+
+.hidden { display: none !important; }
+
+/* ============================================================
+   BOTÓN COMPARTIR
+   ============================================================ */
+#btnCompartir {
+  display: none;
+  margin: 4px auto 0;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid var(--teal-dark);
+  border-radius: 5px;
+  color: var(--teal-mid);
+  font-family: "ShareTechMono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+#btnCompartir:hover {
+  background-color: var(--teal-main);
+  color: #000;
+  border-color: var(--teal-main);
+}

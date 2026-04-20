@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acerca de mí — Isela Escárcega</title>
+  <link rel="stylesheet" href="paginas.css" />
+  <style>
+    #contenedor2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    #img3 {
+      margin-top: 16px;
+      border: 2px solid var(--teal-main);
+      border-radius: 8px;
+      box-shadow: 0 0 16px rgba(0, 191, 165, 0.25);
+      max-width: 280px;
+      width: 80%;
+    }
+
+    #parrafo {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    p {
+      font-family: Georgia, serif;
+      text-align: justify;
+      margin: 24px 10% 0;
+      line-height: 1.85;
+      color: #d8d0c8;
+      font-size: 1.05rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      p { font-size: 0.97rem; margin: 16px 5% 0; }
+    }
+  </style>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VN08VK3NSW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-VN08VK3NSW');
+</script>
+
+<body>
+  <div id="pagina">
+    <div id="barraSuperior">
+      <div id="fotoIzq">
+        <img id="foto1" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
+      </div>
+      <div id="titulo">
+        <h1>Acerca de mí</h1>
+      </div>
+      <div id="fotoDer">
+        <img id="foto2" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
+      </div>
+    </div>
+
+    <nav id="links">
+      <a href="index.html">El<br />inicio</a>
+      <a href="mipoesia.html">Mi<br />poesía</a>
+      <a href="misrelatos.html">Mis<br />relatos</a>
+      <a href="mislibros.html">Mis<br />libros</a>
+      <a href="misnovelas.html">Mis<br />novelas</a>
+    </nav>
+
+    <div id="contenedor2">
+      <img id="img3" src="imagenes/mifoto.jpg" alt="Isela Escárcega" />
+      <div id="parrafo">
+        <p>Mi nombre completo es María Isela Escárcega Villezcas. Nací y crecí en
+          un pueblo olvidado en Chihuahua México. Desde muy temprana edad me
+          atraían las letras, especialmente la poesía. Estando en tercer grado de
+          primaria, leía tantas veces los cuentos que venían en los libros, que
+          los memorizaba. Luego inventaba historias que iban a dar a los oídos de
+          mis hermanas pequeñas. Entrada mi adolescencia, el destino puso en mis
+          manos un manuscrito con frases de amor; eso sin duda marcó un antes y un
+          después en mi vida. Con el paso de los años aumentó mi pasión por las
+          letras, y se desbordó por completo en el año 2017, cuando hice pública
+          mi locura en distintas redes sociales. Desde entonces no he podido dejar
+          de escribir. Me apasiona tanto hacerlo, que a veces lloro cuando escribo.</p>
+        <p>Soy una mujer llena de ilusiones y anhelos. Mis sueños son tan
+          ambiciosos que se pasean en la espalda de las águilas.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

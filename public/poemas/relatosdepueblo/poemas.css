@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "AlmendraDisplay";
+  src: url("../../fuentes/AlmendraDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "ZenLoopItalic";
+  src: url("../../fuentes/ZenLoop-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Sevillana";
+  src: url("../../fuentes/Sevillana-Regular.ttf") format("truetype");
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #e8e0d0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 11.5pt;
+  text-align: center;
+  margin: 0;
+  padding: 16px 12px;
+}
+
+h2 {
+  font-family: "AlmendraDisplay", serif;
+  font-size: 15pt;
+  font-weight: normal;
+  color: #B2DFDB;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+p {
+  margin: 0 0 10px;
+  line-height: 1.8;
+}
+
+#inicial {
+  text-align: justify;
+  font-size: 10.5pt;
+  font-style: italic;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+#minombre {
+  font-family: "Sevillana", cursive;
+  font-size: 15pt;
+  color: #00BFA5;
+  font-weight: normal;
+  margin-top: 16px;
+  display: block;
+}

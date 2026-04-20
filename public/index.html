@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isela Escárcega — Poesía y Literatura</title>
+  <meta name="description" content="Sitio oficial de Isela Escárcega, poeta y escritora mexicana. Poemas, relatos y novelas.">
+
+  <link rel="stylesheet" href="paginas.css" />
+
+  <style>
+    h2 {
+      font-family: "AlmendraDisplay", serif;
+      color: var(--teal-main);
+      text-align: center;
+      letter-spacing: 3px;
+      font-size: 1.3rem;
+      font-weight: normal;
+      margin: 4px 0 10px;
+    }
+
+    #pensamientos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(180deg, #0d0d1a 0%, #0a0a0a 100%);
+      border: 2px solid var(--teal-main);
+      border-bottom: 4px solid var(--teal-main);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 191, 165, 0.12);
+      gap: 10px;
+      padding: 16px;
+    }
+
+    #botonesmasymenos {
+      display: flex;
+      flex-direction: row;
+      gap: 80px;
+      margin-bottom: 4px;
+    }
+
+    .incydec {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      width: 68px;
+      border: 2px solid var(--teal-main);
+      border-radius: 8px;
+      background-color: transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    .incydec:hover {
+      background-color: var(--teal-main);
+      box-shadow: 0 0 12px rgba(0, 191, 165, 0.5);
+    }
+
+    .incydec img {
+      width: 28px;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .incydec:hover img {
+      opacity: 1;
+      filter: invert(1);
+    }
+
+    #texto {
+      border: 2px solid var(--magenta-main);
+      border-radius: 6px;
+    }
+
+    #comentarios {
+      display: flex;
+      justify-content: center;
+      background-color: #000;
+      margin-top: 8px;
+      border: 2px solid var(--magenta-main);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    #disqus_thread {
+      width: 100%;
+      background-color: var(--teal-light);
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VN08VK3NSW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-VN08VK3NSW');
+</script>
+
+<body>
+  <div id="pagina">
+
+    <div id="barraSuperior">
+      <div id="fotoIzq">
+        <img id="foto1" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
+      </div>
+      <div id="titulo">
+        <h1>Isela Escárcega</h1>
+      </div>
+      <div id="fotoDer">
+        <img id="foto2" src="imagenes/foto1xxs.jpg" alt="Isela Escárcega" />
+      </div>
+    </div>
+
+    <nav id="links">
+      <a href="acercademi.html">Acerca<br />de mí</a>
+      <a href="mipoesia.html">Mi<br />poesía</a>
+      <a href="misrelatos.html">Mis<br />relatos</a>
+      <a href="mislibros.html">Mis<br />libros</a>
+      <a href="misnovelas.html">Mis<br />novelas</a>
+    </nav>
+
+    <div id="barratitulo">
+      <h2>— Pensamientos —</h2>
+    </div>
+
+    <div id="pensamientos">
+      <div id="botonesmasymenos">
+        <div class="incydec" id="btnAnterior" title="Anterior">
+          <img id="imag1" src="imagenes/miflechaizqnegro.png" alt="Anterior" />
+        </div>
+        <div class="incydec" id="btnSiguiente" title="Siguiente">
+          <img id="imag2" src="imagenes/miflechadernegro.png" alt="Siguiente" />
+        </div>
+      </div>
+
+      <div id="textopoemas">
+        <iframe id="texto" title="Pensamiento" height="400px" width="350px"
+          src="pensamientos/saludo.html">
+        </iframe>
+      </div>
+    </div>
+
+    <div id="comentarios">
+      <div id="disqus_thread"></div>
+      <script>
+        (function () {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://https-poesiaiselaescarcega-web-app.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Activa JavaScript para ver los comentarios de <a href="https://disqus.com/?ref_noscript">Disqus</a>.</noscript>
+    </div>
+
+  </div>
+
+  <script>
+    const frases = [
+      "pensamientos/frase1.html",
+      "pensamientos/frase2.html",
+      "pensamientos/frase3.html",
+      "pensamientos/frase4.html",
+      "pensamientos/frase5.html",
+      "pensamientos/frase6.html",
+      "pensamientos/frase7.html",
+      "pensamientos/frase8.html",
+      "pensamientos/frase9.html",
+      "pensamientos/frase10.html",
+      "pensamientos/frase11.html",
+      "pensamientos/frase12.html"
+    ];
+    let indice = -1;
+    const iframe = document.getElementById('texto');
+
+    document.getElementById('btnAnterior').addEventListener('click', function () {
+      indice = (indice + 1) % frases.length;
+      iframe.src = frases[indice];
+    });
+
+    document.getElementById('btnSiguiente').addEventListener('click', function () {
+      indice = (indice - 1 + frases.length) % frases.length;
+      iframe.src = frases[indice];
+    });
+  </script>
+</body>
+
+</html>

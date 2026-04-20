@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novelas — Isela Escárcega</title>
+  <link rel="stylesheet" href="paginas.css">
+  <link rel="stylesheet" href="paginas1.css" />
+<style>
+  #titulopoema { flex-grow: 1; height: auto; }
+
+  #textopoemas {
+    flex-grow: 1;
+    border: 2px solid var(--magenta-main);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  h3 {
+    font-family: "AlmendraDisplay", serif;
+    color: var(--teal-main);
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  #modulo1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 6;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #0d0d1a 0%, #0a0a0a 100%);
+    border: 2px solid var(--teal-main);
+    border-radius: 8px;
+    gap: 4px;
+    padding: 10px;
+  }
+</style>
+
+<script src="jquery-3.6.0.js"></script>
+
+<script>
+  $(document).ready(function () {
+
+    $('#textopoemas #texto').hide().fadeIn(1000);
+
+    //Novelas
+    $("#novela li").mouseover(ponertitulo);
+    $("#novela li").mouseover(presentar);
+ 
+
+  //coloca el titulo del libro y la portada.
+  function ponertitulo(e) {
+    if (e.target == n1) {
+      $("#titulonovela").replaceWith(
+        '<div id="titulonovela"><h2 >Un amor que nunca llegó</h2> <h3 >Capítulo I</h3></div>'
+      );
+    }
+  }
+
+  function presentar(e) {
+    //libro:Voces del alma/sección amor
+    if (e.target == n1) {
+      $("#texto").replaceWith(
+        '<iframe id="texto" title="Texto de poema" height="600px" width="400px" src="novelas/unamorquenuncallego.html"> </iframe>'
+      );
+    }
+  }
+});
+</script>
+
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VN08VK3NSW"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-VN08VK3NSW');
+</script>
+
+<body>
+  <div id="pagina">
+    <div id="barraSuperior">
+      <div id="fotoIzq">
+        <img id="foto1"src="imagenes/foto1.jpg" alt="" width="100" height="150" />
+      </div>
+      <div id="titulo">
+        <h1>Mis novelas</h1>
+      </div>
+      <div id="fotoDer">
+        <img id="foto2" src="imagenes/foto1.jpg" alt="" width="100" height="150" />
+      </div>
+    </div>
+
+    <div id="links">
+      <a id="a1" href="acercademi.html">Acerca<br />de mí</a>
+      <a id="a2" href="index.html">El<br />inicio</a>
+      <a id="a3" href="mipoesia.html">Mi<br />poesía</a>
+      <a id="a4" href="mislibros.html">Mis <br />libros</a>
+      <a id="a5" href="misrelatos.html">Mis<br />Relatos</a>
+    </div>
+    <div id="audios">
+      <!-- <audio controls id="audio">
+          <source src="audios/y fueron primavera.mp3" type="audio/mpeg" />
+          Tu navegador no admite mp3
+        </audio> -->
+    </div>
+
+    <div id="menus">
+      <ul class="libros">
+        <li>
+          Seleciona una novela
+          <ul id="novela">
+
+            <li id="n1">Un amor que nunca llegó</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="titulonovela">
+      <h2>Mis Novelas</h2>
+    </div>
+
+    <div id="modulo1">
+      <div id="textopoemas">
+        <iframe id="texto" title="Texto de poema" height="600px" width="400px" src="imagenes/unamorquenuncallego.jpg">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

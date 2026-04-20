@@ -1,0 +1,91 @@
+ /* Definición variables de color*/
+ :root {
+    --50: #E0F2F1;
+    --100: #B2DFDB;
+    --A100: #A7FFEB;
+    --A200: #64FFDA;
+    --A400: #1DE9B6;
+    --A700: #00BFA5;
+    --100M: #F8BBD0;
+    --A100M: #EA80FC;
+    --A200M: #E040FB;
+    --A400M: #D500F9;
+    --A700M: #AA00FF;
+  }
+
+ 
+
+  h2 {
+    color:var(--A700);
+    text-align: center;
+    vertical-align: center;
+    letter-spacing: 2px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: x-large;
+  }
+
+  #pensamientos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--A100M);
+    border: var(--A700) 5px outset;
+    border-bottom: var(--A700) 10px outset;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  #botonesmasymenos {
+    display: flex;
+    flex-direction: row;
+    gap: 75px;
+    margin-bottom: 5px;
+  }
+
+  .incydec {
+    box-shadow: 3px 3px 3px #000;
+    align-content: center;
+    padding-top: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 45px;
+    width: 70px;
+    border: 3px solid var(--A700M);
+    border-radius: 10px;
+    background-color: var(--A100);
+    text-align: center;
+  }
+
+  #texto {
+    border:4px solid var(--A700M);
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .incydec:hover {
+    background-color: white;
+    color: var(--A700);
+  }
+
+  #redes {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    margin: 8ptx;
+  }
+
+  #comentarios {
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    margin-top: 5px;
+    border: 5px solid var(--A700M);
+  }
+
+  #disqus_thread {
+    height: 100%;
+    width: 100%;
+    background-color: var(--100);
+    padding: 20px;
+  }

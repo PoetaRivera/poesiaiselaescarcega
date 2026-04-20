@@ -1,0 +1,65 @@
+/* Menú desplegable de libros/poemas/relatos */
+
+#menus {
+  display: flex;
+  background-color: var(--bg-main);
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.libros > li {
+  float: left;
+}
+
+.libros li {
+  display: block;
+  background-color: #111;
+  color: var(--teal-light);
+  padding: 10px 14px;
+  font-family: "ShareTechMono", monospace;
+  font-size: 0.85rem;
+  box-shadow: 2px 2px 8px #000;
+  border: 1px solid var(--teal-main);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.libros li ul {
+  display: none;
+  position: absolute;
+  min-width: 200px;
+  z-index: 100;
+  left: 0;
+}
+
+.libros li:hover > ul {
+  display: block;
+}
+
+.libros li:hover {
+  background-color: #1a2a2a;
+  color: var(--teal-mid);
+}
+
+.listavoces {
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--teal-light);
+}
+
+h2 {
+  font-family: "AlmendraDisplay", serif;
+  color: var(--teal-main);
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+  font-weight: normal;
+}

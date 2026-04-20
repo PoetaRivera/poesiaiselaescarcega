@@ -1,0 +1,300 @@
+/* ============================================================
+   FUENTES LOCALES
+   ============================================================ */
+@font-face {
+  font-family: "Sevillana";
+  src: url("fuentes/Sevillana-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "AlmendraDisplay";
+  src: url("fuentes/AlmendraDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "ZenLoop";
+  src: url("fuentes/ZenLoop-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "ZenLoopItalic";
+  src: url("fuentes/ZenLoop-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TwinkleStar";
+  src: url("fuentes/TwinkleStar-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Aubrey";
+  src: url("fuentes/Aubrey-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "ShareTechMono";
+  src: url("fuentes/ShareTechMono-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MajorMono";
+  src: url("fuentes/MajorMonoDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Yomogi";
+  src: url("fuentes/Yomogi-Regular.ttf") format("truetype");
+}
+
+/* ============================================================
+   VARIABLES DE COLOR Y DISEÑO
+   ============================================================ */
+:root {
+  --teal-light:  #B2DFDB;
+  --teal-mid:    #1DE9B6;
+  --teal-main:   #00BFA5;
+  --teal-dark:   #00796B;
+  --magenta-light: #EA80FC;
+  --magenta-main:  #AA00FF;
+  --magenta-mid:   #D500F9;
+  --bg-main:     #0a0a0a;
+  --bg-card:     #111111;
+  --bg-nav:      #0d0d0d;
+
+  /* Aliases de compatibilidad con código existente */
+  --50:   #E0F2F1;
+  --100:  #B2DFDB;
+  --A100: #A7FFEB;
+  --A200: #64FFDA;
+  --A400: #1DE9B6;
+  --A700: #00BFA5;
+  --100M: #F8BBD0;
+  --A100M: #EA80FC;
+  --A200M: #E040FB;
+  --A400M: #D500F9;
+  --A700M: #AA00FF;
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* ============================================================
+   ESTRUCTURA PRINCIPAL
+   ============================================================ */
+#pagina {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 1.5%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   BARRA SUPERIOR / HEADER
+   ============================================================ */
+#barraSuperior {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-main);
+  gap: 4%;
+  padding: 10px 0;
+}
+
+#titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a0a2e 50%, #0d1a1a 100%);
+  border-radius: 8px;
+  border: 2px solid var(--teal-main);
+  box-shadow: 0 0 18px rgba(0, 191, 165, 0.25), inset 0 0 30px rgba(170, 0, 255, 0.08);
+  width: 70%;
+  transition: box-shadow 0.3s ease;
+}
+
+#titulo:hover {
+  box-shadow: 0 0 28px rgba(0, 191, 165, 0.4), inset 0 0 40px rgba(170, 0, 255, 0.12);
+}
+
+/* ============================================================
+   TIPOGRAFÍA
+   ============================================================ */
+h1 {
+  font-family: "Sevillana", cursive;
+  letter-spacing: 3px;
+  word-spacing: 6px;
+  font-size: 2.6rem;
+  font-weight: normal;
+  color: var(--teal-light);
+  text-shadow: 0 0 12px rgba(0, 191, 165, 0.5);
+  margin: 0;
+  text-align: center;
+}
+
+h2 {
+  font-family: "AlmendraDisplay", serif;
+  color: var(--teal-main);
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ============================================================
+   FOTOS EN HEADER
+   ============================================================ */
+#fotoDer,
+#fotoIzq {
+  border: 2px solid var(--teal-main);
+  border-radius: 50%;
+  background-color: #000;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 191, 165, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+#fotoDer:hover,
+#fotoIzq:hover {
+  box-shadow: 0 0 20px rgba(0, 191, 165, 0.5);
+}
+
+#foto1,
+#foto2 {
+  width: 100%;
+  border-radius: 50%;
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  #fotoDer,
+  #fotoIzq {
+    border-width: 2px;
+  }
+}
+
+/* ============================================================
+   NAVEGACIÓN
+   ============================================================ */
+#links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0;
+  padding: 8px 0;
+}
+
+#links a {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 2px solid var(--teal-main);
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--teal-light);
+  text-decoration: none;
+  text-align: center;
+  font-family: "ShareTechMono", monospace;
+  font-size: 0.82rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+#links a:hover {
+  background-color: var(--teal-main);
+  color: #000;
+  border-color: var(--teal-main);
+  box-shadow: 0 0 12px rgba(0, 191, 165, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+  #links a {
+    font-size: 0.75rem;
+    padding: 8px 10px;
+  }
+}
+
+/* ============================================================
+   MENÚ DESPLEGABLE (poemas/relatos)
+   ============================================================ */
+#menus {
+  display: flex;
+  background-color: var(--bg-main);
+  justify-content: flex-start;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.libros > li {
+  float: left;
+}
+
+.libros li {
+  display: block;
+  background-color: var(--bg-card);
+  color: var(--teal-light);
+  padding: 10px 14px;
+  font-family: "ShareTechMono", monospace;
+  font-size: 0.85rem;
+  box-shadow: 2px 2px 6px #000;
+  border: 1px solid var(--teal-main);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.libros li ul {
+  display: none;
+  position: absolute;
+  min-width: 180px;
+  z-index: 100;
+}
+
+.libros li:hover > ul {
+  display: block;
+}
+
+.libros li:hover {
+  background-color: #1a2a2a;
+}
+
+.listavoces {
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--teal-light);
+}
+
+/* ============================================================
+   LÍNEA SEPARADORA
+   ============================================================ */
+#linea {
+  border: none;
+  border-top: 1px solid var(--teal-main);
+  opacity: 0.4;
+  margin: 8px 0 20px;
+}
